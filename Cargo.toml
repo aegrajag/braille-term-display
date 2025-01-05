@@ -1,0 +1,9 @@
+[package]
+name = "img_display"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+clap = { version = "4.5.23", features = ["derive"] }
+image = "0.25.5"
+term_size = "0.3.2"
