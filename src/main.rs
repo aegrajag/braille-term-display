@@ -84,7 +84,6 @@ fn main() {
 
                         match (term_w_32, term_h_32) {
                             (Ok(term_w_32), Ok(term_h_32)) => {
-                                println!("{}", aspect_ratio);
                                 let aspect_ratio_adjusted = if aspect_ratio != 0. {
                                     (term_h_32 as f32 / aspect_ratio) as u32
                                 } else {
