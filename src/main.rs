@@ -26,11 +26,9 @@ impl ColorMap for CustomColorMap {
     type Color = Rgb<u8>;
 
     fn index_of(&self, color: &Self::Color) -> usize {
-        // Calculate luminance
         let luminance =
             (0.2126 * color[0] as f32 + 0.7152 * color[1] as f32 + 0.0722 * color[2] as f32) as u8;
 
-        // Return 0 for black, 1 for white
         if luminance < 128 {
             0
         } else {
@@ -44,7 +42,6 @@ impl ColorMap for CustomColorMap {
     }
 }
 
-// TODO fix this
 fn pixels_to_braille(x: u32, y: u32, image: &ImageBuffer<Rgb<u8>, Vec<u8>>) -> Option<char> {
     let mut addon = 0;
     for i in 0..2 {
@@ -65,7 +62,7 @@ fn pixels_to_braille(x: u32, y: u32, image: &ImageBuffer<Rgb<u8>, Vec<u8>>) -> O
 }
 
 fn main() {
-    let args = Args::parse(); // We get the args
+    let args = Args::parse();
     match ImageReader::open(args.file_path) {
         Ok(reader) => {
             let image = reader.decode().unwrap().to_rgb8();
